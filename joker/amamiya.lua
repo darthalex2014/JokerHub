@@ -139,11 +139,13 @@ function JHUB.get_amamiya_effect(card, context, boss_key, vars)
 			}
 		end
 	elseif boss_key == "bl_eye" then --The Eye
-		if not card.debuff and context.joker_main and not G.GAME.hands[context.scoring_name] or G.GAME.hands[context.scoring_name].played_this_round < 1 then
-			return {
-				message = localize{type='variable',key='a_xmult',vars={vars.x_mult}},
-				Xmult_mod = vars.x_mult,
-			}
+		if not card.debuff and context.joker_main then
+			if G.GAME.hands[context.scoring_name] or G.GAME.hands[context.scoring_name].played_this_round < 1 then
+				return {
+					message = localize{type='variable',key='a_xmult',vars={vars.x_mult}},
+					Xmult_mod = vars.x_mult,
+				}
+			end
 		end
 	elseif boss_key == "bl_final_heart" then --Crimson Heart
 		if (context.add_to_deck and not card.ability.extra.crimson_card) or (context.cardarea == G.jokers and context.after and not card.debuff) then
