@@ -194,7 +194,7 @@ function JHUB.get_amamiya_effect(card, context, boss_key, vars)
                 card.ability.jh_initial_hand = true
             end
 		end
-		if not card.debuff and context.individual and context.cardarea == G.hand then
+		if not card.debuff and context.individual and context.cardarea == G.hand and not context.end_of_round then
 			if context.other_card.ability.jh_initial_hand and not context.other_card.debuff then
 				return {
 					x_mult = vars.x_mult,
