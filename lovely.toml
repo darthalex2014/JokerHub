@@ -223,17 +223,6 @@ times = 1
 [[patches]]
 [patches.pattern]
 target = "functions/state_events.lua"
-pattern = '''for _, v in ipairs(SMODS.get_card_areas('playing_cards')) do'''
-position = "before"
-payload = '''
-SMODS.calculate_context({full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, jh_scoring_before = true})
-'''
-match_indent = true
-times = 1
-
-[[patches]]
-[patches.pattern]
-target = "functions/state_events.lua"
 pattern = '''local splashed = SMODS.always_scores(G.play.cards[i]) or next(find_joker('Splash'))'''
 position = "after"
 payload = '''

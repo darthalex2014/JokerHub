@@ -91,7 +91,7 @@ function JHUB.get_amamiya_effect(card, context, boss_key, vars)
 			end
 		end
 	elseif boss_key == "bl_flint" then --The Flint
-		if not card.debuff and context.cardarea == G.jokers and context.jh_scoring_before then
+		if not card.debuff and context.cardarea == G.jokers and context.initial_scoring_step then
 			return {
 				x_chips = vars.x_chips,
 				x_mult = vars.x_mult,
