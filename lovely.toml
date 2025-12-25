@@ -18,33 +18,6 @@ match_indent = true
 times = 1
 
 # -----------------------------------
-# Orb of Confusion
-# -----------------------------------
-[[patches]]
-[patches.pattern]
-target = "blind.lua"
-pattern = "self.triggered = nil"
-position = "after"
-payload = '''
-self.confusion = false
-'''
-match_indent = true
-times = 1
-
-[[patches]]
-[patches.pattern]
-target = "blind.lua"
-pattern = "function Blind:stay_flipped(area, card)"
-position = "after"
-payload = '''
-if self.confusion and ((G.GAME.current_round.hands_played == 0 and G.GAME.current_round.discards_used == 0) or next(SMODS.find_card('j_paperback_the_world'))) then
-	return true
-end
-'''
-match_indent = true
-times = 1
-
-# -----------------------------------
 # Going Viral
 # -----------------------------------
 [[patches]]
